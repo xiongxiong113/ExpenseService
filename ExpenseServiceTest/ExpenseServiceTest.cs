@@ -60,7 +60,8 @@ namespace Expense.Service.Test
             // when
             /*ExpenseType expenseType = ExpenseService.GetExpenseCodeByProjectTypeAndName(project);*/
             // then
-            Assert.Throws<UnexpectedProjectTypeException>(() => ExpenseService.GetExpenseCodeByProjectTypeAndName(project));
+            System.Func<object> testCode = () => ExpenseService.GetExpenseCodeByProjectTypeAndName(project);
+            Assert.Throws<UnexpectedProjectTypeException>(testCode);
         }
     }
 }
